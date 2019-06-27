@@ -4,45 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>React Document</title>
+    <title>react scrimba</title>
 
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">Not Rendered</div>
     <script type="text/babel">
-               class Hello extends React.Component {
+      // Create componet called Hello
 
-          constructor(){
-              super();
-              this.state = {
-                  message: "my friend (from state)!"
-              };
-              this.updateMessage = this.updateMessage.bind(this);
-          }
+      class Hello extends React.Component {
 
-          updateMessage() {
-              this.setState({
-                  message: "my friend (from changed state)!"
-              });
-          }
+        //   // Storing data as prop
+        //   render() {
+        //     return <h1>Hello {this.props.message}!</h1>;
+        //   }
+        // }
 
-          render() {
-               return (
-                 <div>
-                   <h1>Hello {this.state.message}!</h1>
-                   <button onClick={this.updateMessage}/>Click me!</button>
-                 </div>
-              )
-          }
+        // Storing data with state
+
+        constructor() {
+          super();
+          this.state = {
+            message: "my friend (from state)!"
+          };
+          this.updateMessage = this.updateMessage.bind(this);
+        }
+        updateMessage() {
+          this.setState({
+            message: "my friend (from changed state)!"
+          });
+        }
+
+        render() {
+          return (
+            <div>
+          <h1>Hello {this.state.message}!</h1>
+          <button onClick={this.updateMessage}/>Click Me!</button>
+          </div>
+          )
+        }
       }
 
-                ReactDOM.render(
-                  <Hello message="my friend" />,
-                  document.getElementById("root")
-                );
+
+      ReactDOM.render(
+        <Hello message="my friend" />,
+        document.getElementById("root")
+      );
+
+
+      // class Hello extends React.Component {
+      //   render() {
+      //     return <h1>Hello {this.props.message}!</h1>;
+      //   }
+      // }
+
+      //     constructor(){
+      //         super();
+      //         this.state = {
+      //             message: "my friend (from state)!"
+      //         };
+      //         this.updateMessage = this.updateMessage.bind(this);
+      //     }
+
+      //     updateMessage() {
+      //         this.setState({
+      //             message: "my friend (from changed state)!"
+      //         });
+      //     }
+
+      //     render() {
+      //          return (
+      //            <div>
+      //              <h1>Hello {this.state.message}!</h1>
+      //              <button onClick={this.updateMessage}/>Click me!</button>
+      //            </div>
+      //         )
+      //     }
+      // }
     </script>
   </body>
 </html>
